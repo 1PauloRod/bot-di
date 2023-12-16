@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+    botdidb:
+        image: mysql:latest
+        environment:
+        - MYSQL_ROOT_PASSWORD=discordia
+        volumes:
+        - botdiVolume:/var/lib/mysql
+        - mysqlConfig:/etc/mysql
+
+        
+
+
+    botdi-docker-python:
+        build:
+            context: .
+        
+        depends_on:
+          - botdidb
+
+volumes:
+    botdiVolume:
+    mysqlConfig:
+        
+        
+
